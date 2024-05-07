@@ -5,6 +5,6 @@ const table = new AsciiTable3().setHeading('Slash Commands', 'Load Status')
 module.exports =  async(client) => { 
   const commands = [];
   fs.readdirSync('./Commands/Slash/').forEach(folder => {
-   const commandFiles = [];
+   const commandFiles = fs.readdirSync(`./Commands/Slash/${folder}/`).filter(file => file.endsWith('.js'));
     })
 }
