@@ -1,2 +1,2 @@
-const { Client } = require('discord.js');
+const { Client, Routes, REST } = require('discord.js');
 module.exports =  async(client) => { }
