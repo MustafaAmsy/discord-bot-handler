@@ -4,5 +4,5 @@ const { AsciiTable3 } = require('ascii-table3');
 const table = new AsciiTable3().setHeading('Slash Commands', 'Load Status')
 module.exports =  async(client) => { 
   const commands = [];
-  fs.readdirSync('')
+  fs.readdirSync('./Commands/Slash')
 }
