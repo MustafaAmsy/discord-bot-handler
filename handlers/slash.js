@@ -1,2 +1,2 @@
 const { Client } = require('discord.js');
-module.exports =  Client => { }
+module.exports =  async(client) => { }
