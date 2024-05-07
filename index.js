@@ -6,4 +6,4 @@ const client = new Client({
   GatewayIntentBits.Guilds  
     ]
 });
-client.login(config.token)
+client.login(config.client.token)
