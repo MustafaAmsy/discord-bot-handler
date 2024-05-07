@@ -7,4 +7,5 @@ module.exports =  async(client) => {
   fs.readdirSync('./Commands/Slash/').forEach(folder => {
    const commandFiles = fs.readdirSync(`./Commands/Slash/${folder}/`).filter(file => file.endsWith('.js'));
     })
+    for(const file of commandFiles)
 }
