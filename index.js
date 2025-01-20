@@ -1,5 +1,5 @@
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
-const config = require('./configuration.json')
+const config = require('./configuration.json');
 const client = new Client({
   intents:
   [
@@ -9,4 +9,4 @@ const client = new Client({
 client.commands = new Collection();
 client.slashCommands = new Collection();
 client.events = new Collection();
-client.login(config.client.token)
+client.login(client.config.token);
