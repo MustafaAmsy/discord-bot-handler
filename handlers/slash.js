@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { Routes, REST, Client } = require('discord.js');
+const { AsciiTable3 } = require('ascii-table3')
 const path = require('path');
 module.exports = async(client) => {
   const commands = [];
