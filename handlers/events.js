@@ -11,7 +11,6 @@ module.exports = async(client) => {
         const command = require(fullPath);
         if('data' in command && 'execute' in command) {
         client.slashCommands.set(command.data.name,command);
-        commands.push(command.data.toJSON());
         table.addRow(command.data.name, '✔')
         } else {
           table.addRow(file.name, '✖')
