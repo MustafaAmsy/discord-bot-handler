@@ -1,4 +1,4 @@
 const { Events } = require('discord.js')
 const map = { 
-  AutoModerationActionExecution: Events.AutoModerationActionExecution };
+  autoaoderationactionaxecution: Events.AutoModerationActionExecution };
   module.exports = { map };
