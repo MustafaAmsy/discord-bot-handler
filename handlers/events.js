@@ -10,7 +10,10 @@ module.exports = async(client) => {
         loadEvents(fullPath)
       } else if(file.isFile() && file.name.endsWith('js')) {
         const event = require(fullPath);
-        if('data' in command && 'execute' in command) {
+        if(event.rest) { 
+          if(event.on) {
+            client.rest.on(event.name, (...args) => event.execute(...args,client));
+          }
         client.slashCommands.set(command.data.name,command);
         table.addRow(command.data.name, '✔')
         } else {
