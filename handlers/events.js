@@ -11,7 +11,7 @@ module.exports = async(client) => {
         loadEvents(fullPath)
       } else if(file.isFile() && file.name.endsWith('js')) {
         const event = require(fullPath);
-        const eventName = map[event.name] || event.name;
+        const eventName = map[event.name.toLowerCase()] || event.name;
         if(event.rest) { 
           if(event.on) {
             client.rest.on(eventName, (...args) => event.execute(...args,client));
