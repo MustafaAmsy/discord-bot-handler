@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { Routes, REST, Client } = require('discord.js');
 const path = require('path');
-module.exports = (client) => {
+module.exports = async(client) => {
   const commands = [];
   function loadCommands(directory) {
     const files = fs.readdirSync(directory, { withFileTypes: true });
@@ -18,4 +18,10 @@ module.exports = (client) => {
   }
   const commandsPath = path.join(__dirname, 'commands/slash/');
   loadCommands(commandsPath);
+  const rest = new REST({ version: 10 }).setToken(client.token)
+  try {
+    const data = await rest.put(Routes.applicationCommands(client.user.id), { body: commands });
+  } catch(error) {
+    console.log(error)
+  }
 }
