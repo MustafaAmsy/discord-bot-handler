@@ -15,7 +15,7 @@ module.exports = async(client) => {
         if(command.aliases && !Array.isArray(command.aliases)) {
          client.aliases.set(command.aliases, command);
         } else if(command.aliases && Array.isArray(command.aliases)) {
-        command.aliases.forEach(alias => client.aliases.set(alias, command))
+        command.aliases.forEach(alias => client.aliases.set(alias, command));
         }
       }
     }
