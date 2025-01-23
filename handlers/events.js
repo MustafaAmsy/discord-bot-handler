@@ -1,4 +1,5 @@
 const { AsciiTable3 } = require('ascii-table3');
+const fs = require('fs');
 const table = new AsciiTable3().setHeading('Events', 'Load Status');
 module.exports = async(client) => {
   function loadEvents(directory) {
@@ -8,7 +9,7 @@ module.exports = async(client) => {
       if(file.isDirectory()) {
         loadEvents(fullPath)
       } else if(file.isFile() && file.name.endsWith('js')) {
-        const command = require(fullPath);
+        const event = require(fullPath);
         if('data' in command && 'execute' in command) {
         client.slashCommands.set(command.data.name,command);
         table.addRow(command.data.name, '✔')
