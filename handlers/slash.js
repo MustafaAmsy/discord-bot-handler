@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 module.exports = (client) => {
+  const commands = [];
   function loadCommands(directory) {
     const files = fs.readdirSync(directory, { withFileTypes: true });
     for (const file of files) {
