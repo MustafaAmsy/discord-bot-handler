@@ -14,15 +14,21 @@ module.exports = async(client) => {
           if(event.on) {
             client.rest.on(event.name, (...args) => event.execute(...args,client));
           } else {
-            client.rest.once(event.name, (...args) => event.execute(...args, client))
+            client.rest.once(event.name, (...args) => event.execute(...args, client));
           }
-        client.slashCommands.set(command.data.name,command);
-        table.addRow(command.data.name, '✔')
+        } else {
+          if(event.on) {
+            client.on(event.name, (...args) => event.execute(...args, client));
+          } else {
+            client.once(event.name, (...args) => event.execute(...args, client))
+          }
+        }
+        table.addRow(event.name, '✔')
         } else {
           table.addRow(file.name, '✖')
         }
       }
     }
   }
-  const commandsPath = path.join(__dirname, 'commands/slash/');
-  loadCommands(commandsPath);
+  const eventsPath = path.join(__dirname, 'events');
+  loadEvents(eventsPath);
