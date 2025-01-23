@@ -10,17 +10,17 @@ module.exports = async(client) => {
       } else if(file.isFile() && file.name.endsWith('js')) {
         const component = require(fullPath);
         if(!component.type) return console.error('Missing component type');
-        if(command.name) {
-        client.commands.set(command.name,command);
-        }
-        if(command.aliases && !Array.isArray(command.aliases)) {
-         client.aliases.set(command.aliases, command);
-        } else if(command.aliases && Array.isArray(command.aliases)) {
-        command.aliases.forEach(alias => client.aliases.set(alias, command));
+        switch (component.type) {
+          case "button":
+            client.components.buttons.set(component.name, component);
+          break;
+          case "modal": 
+            client.components.modals.set(component.name, component);
+          break;
         }
       }
+      }
     }
-  }
-  const commandsPath = path.join(__dirname, 'commands/message/');
-  loadCommands(commandsPath);
+  const componentPath = path.join(__dirname, 'src/components');
+  loadComponents(componentPath);
 }
