@@ -1,5 +1,6 @@
 const { AsciiTable3 } = require('ascii-table3');
 const fs = require('fs');
+const { map } = require('../mappedEvents.js');
 const table = new AsciiTable3().setHeading('Events', 'Load Status');
 module.exports = async(client) => {
   function loadEvents(directory) {
@@ -10,17 +11,18 @@ module.exports = async(client) => {
         loadEvents(fullPath)
       } else if(file.isFile() && file.name.endsWith('js')) {
         const event = require(fullPath);
+        const eventName = map[event.name] || event.name;
         if(event.rest) { 
           if(event.on) {
-            client.rest.on(event.name, (...args) => event.execute(...args,client));
+            client.rest.on(eventName, (...args) => event.execute(...args,client));
           } else {
-            client.rest.once(event.name, (...args) => event.execute(...args, client));
+            client.rest.once(eventName, (...args) => event.execute(...args, client));
           }
         } else {
           if(event.on) {
-            client.on(event.name, (...args) => event.execute(...args, client));
+            client.on(eventName, (...args) => event.execute(...args, client));
           } else {
-            client.once(event.name, (...args) => event.execute(...args, client))
+            client.once(eventName, (...args) => event.execute(...args, client))
           }
         }
         table.addRow(event.name, '✔')
