@@ -12,6 +12,7 @@ module.exports = (client) => {
       } else if(file.isFile() && file.name.endsWith('js')) {
         const command = require(fullPath);
         client.slashCommands.set(command.data.name,command);
+        commands.push(command.data.toJSON());
       }
     }
   }
