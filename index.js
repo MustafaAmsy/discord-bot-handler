@@ -14,5 +14,5 @@ const client = new Client({
 client.config = config;
 client.commands = new Collection();
 client.slashCommands = new Collection();
-client.events = new Collection();
+client.aliases = new Collection();
 client.login(client.config.token);
