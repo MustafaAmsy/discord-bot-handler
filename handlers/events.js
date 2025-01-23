@@ -13,6 +13,8 @@ module.exports = async(client) => {
         if(event.rest) { 
           if(event.on) {
             client.rest.on(event.name, (...args) => event.execute(...args,client));
+          } else {
+            client.rest.once(event.name, (...args) => event.execute(...args, client))
           }
         client.slashCommands.set(command.data.name,command);
         table.addRow(command.data.name, '✔')
