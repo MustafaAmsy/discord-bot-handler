@@ -1,7 +1,8 @@
 const fs = require('fs');
 const { Routes, REST, Client } = require('discord.js');
-const { AsciiTable3 } = require('ascii-table3')
 const path = require('path');
+const { AsciiTable3 } = require('ascii-table3');
+const table = new AsciiTable3().setHeading('Slash Commands', 'Load Status');
 module.exports = async(client) => {
   const commands = [];
   function loadCommands(directory) {
@@ -12,8 +13,13 @@ module.exports = async(client) => {
         loadCommands(fullPath)
       } else if(file.isFile() && file.name.endsWith('js')) {
         const command = require(fullPath);
+        if('data' in command && 'execute' in command) {
         client.slashCommands.set(command.data.name,command);
         commands.push(command.data.toJSON());
+        table.addRow(command.data.name, '✔')
+        } else {
+          table.addRow(file.name, '✖')
+        }
       }
     }
   }
