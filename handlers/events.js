@@ -30,5 +30,5 @@ module.exports = async(client) => {
       }
     }
   }
-  const eventsPath = path.join(__dirname, 'events');
+  const eventsPath = path.join(__dirname, 'src/events');
   loadEvents(eventsPath);
