@@ -13,6 +13,7 @@ module.exports = {
    if(interaction.isChatInputCommand()) {
      const command = client.slashCommands.get(interaction.commandName);
      if(!command) return;
+     const subcommand = interaction.options.getSubcommand();
      if(command.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer command only', flags: MessageFlags.Ephemeral});
      try { 
      await command.execute({ interaction, client });
