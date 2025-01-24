@@ -22,6 +22,7 @@ module.exports = {
   if(cmd) {
     try {
      if(cmd.dev && isDeveloper) return;
+     await cmd.execute({ message, client, args})
   }
   
   }
