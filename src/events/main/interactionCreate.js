@@ -23,6 +23,7 @@ module.exports = {
    } else if(interaction.isButton()) {
      const button = client.components.buttons.get(interaction.customId);
      if(!button) return;
+     if(button.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer button only', flags: MessageFlags.Ephemeral});
      try {
        await button.execute({ client, interaction });
      } catch(error) {
@@ -32,6 +33,7 @@ module.exports = {
    } else if(interaction.isModalSubmit()) {
      const modal = client.components.modals.get(interaction.customId);
      if(!modal) return;
+     if(modal.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer modal only', flags: MessageFlags.Ephemeral});
      try {
        await modal.execute({ client, interaction });
      } catch(error) {
