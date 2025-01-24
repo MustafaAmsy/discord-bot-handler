@@ -15,4 +15,9 @@ client.config = config;
 client.commands = new Collection();
 client.slashCommands = new Collection();
 client.aliases = new Collection();
+client.components = { 
+  buttons: new Collection(), 
+  modals: new Collection(), 
+  selectMenus: new Collection() 
+};
 client.login(client.config.token);
