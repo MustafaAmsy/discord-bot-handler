@@ -18,6 +18,6 @@ client.aliases = new Collection();
 client.components = { 
   buttons: new Collection(), 
   modals: new Collection(), 
-  selectMenus: new Collection() 
+  selectMenus: new Collection(),
 };
 client.login(client.config.token);
