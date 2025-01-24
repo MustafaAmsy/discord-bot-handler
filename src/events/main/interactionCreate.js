@@ -1,4 +1,4 @@
-const { Client, InteractionType } = require('discord.js');
+const { Client, InteractionType, MessageFlags } = require('discord.js');
 module.exports = {
   name: 'interactionCreate',
   on: true,
@@ -14,7 +14,10 @@ module.exports = {
      const command = client.slashCommands.get(interaction.commandName);
      if(!command) return;
      if(command.dev && !isDeveloper) return;
-     await command.execute({ interaction, client })
+     try { 
+     await command.execute({ interaction, client });
+   } catch(error) {
+     console.log(error);
    }
   }
 }
