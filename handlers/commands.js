@@ -20,6 +20,6 @@ module.exports = async(client) => {
       }
     }
   }
-  const commandsPath = path.join(__dirname, 'src/commands/message/');
+  const commandsPath = path.join(__dirname, 'src/commands/message');
   loadCommands(commandsPath);
 }
