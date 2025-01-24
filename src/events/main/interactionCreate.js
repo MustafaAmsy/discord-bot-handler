@@ -42,6 +42,7 @@ module.exports = {
      }
    } else if(interaction.isContextMenuCommand()) {
      const contextMenu = client.components.contextmenus.get(interaction.customId);
+          loadSubcommand(interaction, client);
      if(!contextMenu) return;
      if(contextMenu.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer context menu only', flags: MessageFlags.Ephemeral});
      try {
@@ -52,6 +53,7 @@ module.exports = {
      }
    } else if(interaction.isAutoComplete()) {
      const autocomplete = client.components.autocomplete.get(interaction.customId);
+     loadSubcommand(interaction, client);
      if(!autocomplete) return;
      if(autocomplete.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer command only', flags: MessageFlags.Ephemeral});
      try {
