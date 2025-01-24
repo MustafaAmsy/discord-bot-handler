@@ -18,7 +18,7 @@ module.exports = async(client) => {
             client.components.modals.set(component.name, component);
           break;
           case "selectmenu":
-            client.components.selectenus.set(component.name, component);
+            client.components.selectmenus.set(component.name, component);
           break;
          case "contextmenu":
            client.components.contextmenus.set(component.name, component);
