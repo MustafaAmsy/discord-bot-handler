@@ -10,12 +10,14 @@ module.exports = async(client) => {
       } else if(file.isFile() && file.name.endsWith('js')) {
         const component = require(fullPath);
         if(!component.type) return console.error('Missing component type');
-        switch (component.type) {
+        switch (component.type.toLowerCase()) {
           case "button":
             client.components.buttons.set(component.name, component);
           break;
           case "modal": 
             client.components.modals.set(component.name, component);
+          break;
+          case "selectMenu"
           break;
         }
       }
