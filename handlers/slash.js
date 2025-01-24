@@ -13,7 +13,7 @@ module.exports = async(client) => {
         loadCommands(fullPath)
       } else if(file.isFile() && file.name.endsWith('js')) {
         const command = require(fullPath);
-        if(command.subcommand) return await client.subcommands.set(command.subcommand, command);
+        if(command.subcommand) return client.subcommands.set(command.subcommand, command);
         if('data' in command && 'execute' in command) {
         client.slashCommands.set(command.data.name,command);
         commands.push(command.data.toJSON());
