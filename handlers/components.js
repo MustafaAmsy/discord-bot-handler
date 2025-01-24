@@ -17,8 +17,14 @@ module.exports = async(client) => {
           case "modal": 
             client.components.modals.set(component.name, component);
           break;
-          case "selectMenu":
+          case "selectmenu":
             client.components.selectMenus.set(component.name, component);
+          break;
+         case "contextmenu":
+           client.components.contextmenu.set(component.name, component);
+          break;
+         case "autocomplete":
+           client.compoments.autocomplete.set(component.name, component);
           break;
         }
       }
