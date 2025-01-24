@@ -1,0 +1,16 @@
+{
+  "developers": "668652218517422081",
+  "token": "",
+  "database": {
+    "uri": "",
+    "collections": {
+      "global": true,
+      "guild": true,
+      "channel": false,
+      "user": false,
+      "member": false,
+      "message": false,
+      "command": false
+    }
+  }
+}
