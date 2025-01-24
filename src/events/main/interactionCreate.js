@@ -18,6 +18,8 @@ module.exports = {
      await command.execute({ interaction, client });
    } catch(error) {
      console.log(error);
+     await interaction.reply({ content: 'Something has went wrong', flags: MessageFlags.Ephemeral });
+   }
    }
   }
 }
