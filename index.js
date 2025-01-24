@@ -24,3 +24,4 @@ client.components = {
   autocomplete: new Collection(),
 };
 client.login(client.config.token);
+['slash', 'commands', 'events', 'components'].forEach(handler => require(`./handlers/${handler}`)(client));
