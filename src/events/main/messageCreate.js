@@ -6,10 +6,8 @@ module.exports = {
   const { channel, author, guild, member } = message;
   const developers = client.config.developers;
   let isDeveloper = false;
-  if(Array.isArray(developers)) {
-    if(developers.includes(message.author.id)) {
+  if(Array.isArray(developers) && developers.includes(message.author.id)) {
       isDeveloper = true;
-    }
   } else if(developers === message.author.id) {
     isDeveloper = true;
   }
