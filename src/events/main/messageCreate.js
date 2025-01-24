@@ -6,7 +6,7 @@ module.exports = {
   const developers = client.config.developers;
   let isDeveloper = false;
   if(Array.isArray(developers)) {
-    if(developers.includes(message.author.id.toString())) {
+    if(developers.includes(message.author.id)) {
       isDeveloper = true;
     }
   } else if(developers === message.author.id) {
