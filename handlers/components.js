@@ -18,10 +18,10 @@ module.exports = async(client) => {
             client.components.modals.set(component.name, component);
           break;
           case "selectmenu":
-            client.components.selectMenus.set(component.name, component);
+            client.components.selectenus.set(component.name, component);
           break;
          case "contextmenu":
-           client.components.contextmenu.set(component.name, component);
+           client.components.contextmenus.set(component.name, component);
           break;
          case "autocomplete":
            client.compoments.autocomplete.set(component.name, component);
