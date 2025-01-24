@@ -21,9 +21,7 @@ module.exports = {
   const cmd = client.commands.get(command);
   if(cmd) {
     try {
-     if(cmd.dev) {
-       
-    }
+     if(cmd.dev && isDeveloper) return;
   }
   
   }
