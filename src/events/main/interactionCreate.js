@@ -43,6 +43,7 @@ module.exports = {
    } else if(interaction.isContextMenuCommand()) {
      const contextMenu = client.components.contextmenus.get(interaction.customId);
      if(!contextMenu) return;
+     if(contextMenu.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer context menu only', flags: MessageFlags.Ephemeral});
      try {
        await contextMenu.execute({ client, interaction });
      } catch(error) {
@@ -52,6 +53,7 @@ module.exports = {
    } else if(interaction.isAutoComplete()) {
      const autocomplete = client.components.autocomplete.get(interaction.customId);
      if(!autocomplete) return;
+     if(autocomplete.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer command only', flags: MessageFlags.Ephemeral});
      try {
        await autocomplete.execute({ interaction, client });
      } catch(error) {
@@ -61,6 +63,7 @@ module.exports = {
    } else if(interaction.isAnySelectMenu()) {
      const selectMenu = client.components.selectmenus.get(interaction.customId);
      if(!selectMenu) return;
+     if(selectMenu.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer select menu only!', flags: MessageFlags.Ephemeral});
      try {
       await selectMenu.execute({ interaction, client });
      } catch(error) {
