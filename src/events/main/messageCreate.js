@@ -3,6 +3,7 @@ module.exports = {
   name: 'messageCreate',
   on: true,
   execute: async ({ message, client }) => {
+  const { channel, author, guild, member } = message;
   const developers = client.config.developers;
   let isDeveloper = false;
   if(Array.isArray(developers)) {
@@ -23,7 +24,7 @@ module.exports = {
   if(cmd) {
     try {
      if(cmd.dev && isDeveloper) return;
-     await cmd.execute({ message, client, args})
+     await cmd.execute({ message, client, args, author, guild, member, channel });
   }
   
   }
