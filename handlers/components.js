@@ -17,7 +17,8 @@ module.exports = async(client) => {
           case "modal": 
             client.components.modals.set(component.name, component);
           break;
-          case "selectMenu"
+          case "selectMenu":
+            client.components.selectMenus.set(component.name, component);
           break;
         }
       }
