@@ -13,7 +13,7 @@ client.components.selectmenus.clear();
 client.comppnents.contextmenus.clear();
 client.components.autocomplete.clear();
 client.removeAllListeners();
-['slash', 'commands', 'components', 'events'].forEach(handler => require(`../../../../handlers/${handler}`));
+['slash', 'commands', 'components', 'events'].forEach(handler => require(`../../../../handlers/${handler}`)(client));
 message.reply('\`\`\`\nSuccessfully Reloaded commands\`\`\`')
   }
 }
