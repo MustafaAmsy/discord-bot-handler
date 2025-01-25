@@ -1,6 +1,7 @@
 {
   "developers": "668652218517422081",
   "client_id": "",
+  "prefix": "",
   "token": "",
   "database": {
     "uri": "",
