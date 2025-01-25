@@ -3,6 +3,6 @@ module.exports = {
   name: 'ready',
   once: true,
   execute: async({ client }) => {
-    console.log(`Succesfully logged on ${client.user.name}`);
+    console.log(`Succesfully logged on ${client.user.username}`);
   }
 }
