@@ -28,7 +28,7 @@ module.exports = async(client) => {
   loadCommands(commandsPath);
   const rest = new REST({ version: 10 }).setToken(client.token)
   try {
-    const data = await rest.put(Routes.applicationCommands(client.user.id), { body: commands });
+    const data = await rest.put(Routes.applicationCommands(client.config.client_id), { body: commands });
   } catch(error) {
     console.log(error)
   }
