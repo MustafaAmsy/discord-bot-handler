@@ -12,6 +12,7 @@ module.exports = async(client) => {
       } else if(file.isFile() && file.name.endsWith('js')) {
         const event = require(fullPath);
         const eventName = map[event.name.toLowerCase()] || event.name;
+        if(!event.loop) {
         if(event.rest) { 
           if(event.on) {
             client.rest.on(eventName, (...args) => event.execute(...args,client));
@@ -24,6 +25,21 @@ module.exports = async(client) => {
           } else {
             client.once(eventName, (...args) => event.execute(...args, client))
           }
+        }
+        } else if(event.loop) {
+        if(event.rest) { 
+          if(event.on) {
+            setInterval(() => client.rest.on(eventName, (...args) => event.execute(...args,client)), event.loop);
+          } else {
+           setInterval(() => client.rest.once(eventName, (...args) => event.execute(...args, client)), event.loop);
+          }
+        } else {
+          if(event.on) {
+           setInterval(() => client.on(eventName, (...args) => event.execute(...args, client)), event.loop);
+          } else {
+          setInterval(() => client.once(eventName, (...args) => event.execute(...args, client)), event.loop);
+          }
+        }  
         }
         table.addRow(event.name, '✔')
         } else {
