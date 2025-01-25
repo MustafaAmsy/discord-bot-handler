@@ -1,4 +1,3 @@
-const { Client } = require('discord.js');
 module.exports = {
   name: 'messageCreate',
   on: true,
