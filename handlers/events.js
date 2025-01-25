@@ -1,4 +1,5 @@
 const { AsciiTable3 } = require('ascii-table3');
+const path = require('path');
 const fs = require('fs');
 const { map } = require('../mappedEvents.js');
 const table = new AsciiTable3().setHeading('Events', 'Load Status');
