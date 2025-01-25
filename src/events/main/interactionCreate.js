@@ -1,4 +1,4 @@
-const { Client, InteractionType, MessageFlags } = require('discord.js');
+const { InteractionType, MessageFlags } = require('discord.js');
 module.exports = {
   name: 'interactionCreate',
   on: true,
