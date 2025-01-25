@@ -30,6 +30,6 @@ module.exports = async(client) => {
       }
       }
     }
-  const componentPath = path.join(__dirname, 'src/components');
+  const componentPath = path.join(__dirname, '../src/components');
   loadComponents(componentPath);
 }
