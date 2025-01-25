@@ -1,4 +1,3 @@
-const { Client } = require('discord.js');
 const colors = require('discord.js');
 module.exports = {
   name: 'ready',
