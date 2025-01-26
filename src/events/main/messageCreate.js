@@ -20,7 +20,7 @@ module.exports = {
   
   if(cmd) {
     try {
-     if(cmd.dev && isDeveloper) return;
+     if(cmd.dev && !isDeveloper) return;
      await cmd.execute({ message, client, args, author, guild, member, channel });
   } catch (error) {
     console.log(error)
