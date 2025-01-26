@@ -17,9 +17,9 @@ module.exports = async(client) => {
         if('data' in command && 'execute' in command) {
         client.slashCommands.set(command.data.name,command);
         commands.push(command.data.toJSON());
-        table.addRow(command.data.name, '✔')
+        table.addRow(command.data.name, '✔');
         } else {
-          table.addRow(file.name, '✖')
+          table.addRow(file.name, '✖');
         }
       }
     }
