@@ -1,7 +1,7 @@
 const { inspect } = require('util');
 module.exports = {
   name: 'eval',
-  aliases: 'r',
+  aliases: 'e',
   dev: true,
   execute: async({ message, client, args }) => {
     let code = args.join(" ");
