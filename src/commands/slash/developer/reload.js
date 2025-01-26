@@ -2,7 +2,7 @@ const { SlashCommandBuilder, MessageFlags } = require('discord.js');
 module.exports = {
   data: new SlashCommandBuilder().setName('reload').setDescription('Reloads commands').addBooleanOption(option => option.setName('ephemeral').setDescription('Whether you want the response to be ephemeral or not').setRequired(false)),
   dev: true,
-  execute: async({ client, interaction }) => {
+  execute: async(interaction, client) => {
   let ephemeral = interaction.options.getBoolean('ephemeral') || false;
   if(ephemeral) {
    ephemeral = MessageFlags.Ephemeral;
