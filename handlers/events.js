@@ -16,39 +16,39 @@ module.exports = async(client) => {
         if(!event.loop) {
         if(event.rest) { 
           if(event.on) {
-            client.rest.on(eventName, (...args) => event.execute({ ...args,client }));
+            client.rest.on(eventName, (...args) => event.execute(..args,client));
           } else {
-            client.rest.once(eventName, (...args) => event.execute({ ...args, client }));
+            client.rest.once(eventName, (...args) => event.execute(...args, client));
           }
         } else {
           if(event.on) {
-            client.on(eventName, (...args) => event.execute({ ...args, client }));
+            client.on(eventName, (...args) => event.execute(...args, client));
           } else {
-            client.once(eventName, (...args) => event.execute({ ...args, client }))
+            client.once(eventName, (...args) => event.execute(...args, client))
           }
         }
         } else if(event.loop) {
         if(event.rest) { 
           if(event.on) {
-            setInterval(() => client.rest.on(eventName, (...args) => event.execute({ ...args,client })), event.loop);
+            setInterval(() => client.rest.on(eventName, (...args) => event.execute(...args,client)), event.loop);
           } else {
-           setInterval(() => client.rest.once(eventName, (...args) => event.execute({ ...args, client })), event.loop);
+           setInterval(() => client.rest.once(eventName, (...args) => event.execute(...args, client)), event.loop);
           }
         } else {
           if(event.on) {
-           setInterval(() => client.on(eventName, (...args) => event.execute({ ...args, client })), event.loop);
+           setInterval(() => client.on(eventName, (...args) => event.execute(...args, client)), event.loop);
           } else {
-          setInterval(() => client.once(eventName, (...args) => event.execute({ ...args, client })), event.loop);
+          setInterval(() => client.once(eventName, (...args) => event.execute(...args, client)), event.loop);
           }
         }  
         }
-        table.addRow(event.name, '✔')
+        table.addRow(event.name, '✔');
         } else {
-          table.addRow(file.name, '✖')
+          table.addRow(file.name, '✖');
         }
       }
     }
-  
+  console.log(table.toString());
   const eventsPath = path.join(__dirname, '../src/events');
   loadEvents(eventsPath);
 }
