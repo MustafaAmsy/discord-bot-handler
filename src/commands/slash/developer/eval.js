@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, MessageFlags } = require('discord.js');
 const { inspect } = require('util');
 module.exports = {
-  data: new SlashCommandBuilder().setName('eval').setDescription('Evaluated a code').addStringOption(option => option.setName('code').setDescription('The code you want to evaluate').setRequired(true)).addBooleanOption(option => option.setName('ephemeral').setDescription('Whether you want the code to be ephemeral or not').setRequired(false)).addBooleanOption(option => option.setName('awaited').setDescription('Whether you want the code to be awaited or not').setRequired(false)),
+  data: new SlashCommandBuilder().setName('eval').setDescription('Evaluates a code').addStringOption(option => option.setName('code').setDescription('The code you want to evaluate').setRequired(true)).addBooleanOption(option => option.setName('ephemeral').setDescription('Whether you want the code to be ephemeral or not').setRequired(false)).addBooleanOption(option => option.setName('awaited').setDescription('Whether you want the code to be awaited or not').setRequired(false)),
   dev: true,
   execute: async({ interaction, client }) => {
     let code = interaction.options.getString('code');
