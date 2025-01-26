@@ -26,7 +26,8 @@ module.exports = async(client) => {
   }
   const commandsPath = path.join(__dirname, '../src/commands/slash');
   loadCommands(commandsPath);
-  const rest = new REST({ version: 10 }).setToken(client.token)
+  const rest = new REST({ version: 10 }).setToken(client.token);
+  console.log(table.toString());
   try {
     const data = await rest.put(Routes.applicationCommands(client.config.client_id), { body: commands });
   } catch(error) {
