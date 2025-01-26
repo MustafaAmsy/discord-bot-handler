@@ -16,7 +16,7 @@ module.exports = async(client) => {
         if(!event.loop) {
         if(event.rest) { 
           if(event.on) {
-            client.rest.on(eventName, (...args) => event.execute(..args,client));
+            client.rest.on(eventName, (...args) => event.execute(...args,client));
           } else {
             client.rest.once(eventName, (...args) => event.execute(...args, client));
           }
