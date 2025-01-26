@@ -5,9 +5,9 @@ module.exports = {
   execute: async(interaction, client) => {
    const developers = client.config.developers;
    let isDeveloper = false;
-   if(!Array.isArray(developers) && interaction.author.id === developers) {
+   if(!Array.isArray(developers) && interaction.user.id === developers) {
      isDeveloper = true;
-   } else if(Array.isArray(developers) && developers.includes(interaction.author.id)) {
+   } else if(Array.isArray(developers) && developers.includes(interaction.user.id)) {
      isDeveloper = true;
    }
    if(interaction.isChatInputCommand()) {
@@ -80,9 +80,9 @@ async function loadSubcommand(interaction, client) {
   if(!subcommand) return;
    const developers = client.config.developers;
    let isDeveloper = false;
-   if(!Array.isArray(developers) && interaction.author.id === developers) {
+   if(!Array.isArray(developers) && interaction.user.id === developers) {
      isDeveloper = true;
-   } else if(Array.isArray(developers) && developers.includes(interaction.author.id)) {
+   } else if(Array.isArray(developers) && developers.includes(interaction.user.id)) {
      isDeveloper = true;
    }
    if(subcommand.dev && !isDeveloper) return await interaction.reply({ content: 'This is a developer command only', flags: MessageFlags.Ephemeral});
