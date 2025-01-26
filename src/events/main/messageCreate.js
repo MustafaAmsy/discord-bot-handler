@@ -1,7 +1,7 @@
 module.exports = {
   name: 'messageCreate',
   on: true,
-  execute: async ({ message, client }) => {
+  execute: async (message, client) => {
   const { channel, author, guild, member } = message;
   const developers = client.config.developers;
   let isDeveloper = false;
