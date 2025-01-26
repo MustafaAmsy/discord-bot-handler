@@ -2,7 +2,7 @@ const { InteractionType, MessageFlags } = require('discord.js');
 module.exports = {
   name: 'interactionCreate',
   on: true,
-  execute: async({ interaction, client }) => {
+  execute: async(interaction, client) => {
    const developers = client.config.developers;
    let isDeveloper = false;
    if(!Array.isArray(developers) && interaction.author.id === developers) {
