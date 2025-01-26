@@ -13,6 +13,8 @@ module.exports = {
     } else {
       ephemeral = 0;
     }
+    await interaction.deferReply({ flags: ephemeral });
+    await interaction.editReply({ content: 'Evaluating...', flags: ephemeral });
     try {
       const evaluated = awaited? await eval(code) : eval(code);
       result = typeof evaluated !== "string" ? inspect(evaluated) : evaluated.includes(client.token) ? evaluated.replaceAll(client.token, "censored") : evaluated;
